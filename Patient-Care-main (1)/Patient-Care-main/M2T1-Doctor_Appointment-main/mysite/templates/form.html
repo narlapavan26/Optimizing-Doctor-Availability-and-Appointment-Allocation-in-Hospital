@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Appointment Booking</title>
+  <link rel="stylesheet" href="style.css"> 
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-image: url("https://img.freepik.com/free-photo/health-still-life-with-copy-space_23-2148854034.jpg?w=1060&t=st=1713505507~exp=1713506107~hmac=dc6c003b2cb3588bf8a1a2f022c2ef1efae95225aa5ccf12650abfa1bae79bca"); /* Replace with your image URL */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: rgba(253, 253, 253, 0.87);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      resize: none; 
+    }
+
+    textarea {
+      height: 100px; 
+    }
+
+    button[type="submit"] {
+    background-color: #49bea4;
+    margin-left: 45vw;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      
+    }
+
+    button[type="submit"]:hover {
+      background-color: #3a9783;
+      margin: auto;
+      
+    }
+  </style>
+</head>
+<body>
+  <h1>Schedule Appointment</h1>
+  <form action="process_appointment.php" method="post"> <div class="form-group">
+      <label for="patientName">Patient Name:</label>
+      <input type="text" id="patientName" name="patientName" placeholder="Enter your full name" required>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+    </div>
+    <div class="form-group">
+      <label for="doctor">Select Doctor:</label>
+      <select id="doctor" name="doctor" required>
+        <option value="">-- Select Doctor --</option>
+        <option value="doctor1">Dr. John Smith (Cardiology)</option>
+        <option value="doctor2">Dr. Jane Doe (Dermatology)</option>
+        <option value="doctor3">Dr. Michael Lee (Pediatrics)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="appointmentDate">Appointment Date:</label>
+      <input type="date" id="appointmentDate" name="appointmentDate" required>
+    </div>
+    <div class="form-group">
+      <label for="appointmentTime">Appointment Time:</label>
+      <select id="appointmentTime" name="appointmentTime" required>
+        <option value="">-- Select Time --</option>
+        <option value="9:00">9:00 AM</option>
+        <option value="10:00">10:00 AM</option>
+        <option value="11:00">11:00 AM</option>
+        <option value="1:00">1:00 PM</option>
+        <option value="2:00">2:00 PM</option>
+        <option value="3:00">3:00 PM</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="reason">Reason for Appointment (optional):</label>
+      <textarea id="reason" name="reason" placeholder="Briefly describe your reason for the appointment"></textarea>
+    </div>
+    <button type="submit">Submit Appointment Request</button>
+  </form>
+</body>
+</html>
