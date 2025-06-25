@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Doctor Availability Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Doctor Availability Prediction</h2>
+    <form action="/predict" method="post">
+      <div class="row g-3">
+        
+        <!-- Gender Dropdown -->
+        <div class="col-md-6">
+          <label class="form-label">Gender:</label>
+          <select class="form-control" name="Gender" required>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <!-- Age -->
+        <div class="col-md-6">
+          <label class="form-label">Age:</label>
+          <input type="number" class="form-control" name="Age" min="0" max="120" required />
+        </div>
+
+        <!-- Binary Fields (0/1) -->
+        <div class="col-md-6">
+          <label class="form-label">Scholarship (0/1):</label>
+          <input type="number" class="form-control" name="Scholarship" min="0" max="1" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Hypertension (0/1):</label>
+          <input type="number" class="form-control" name="Hypertension" min="0" max="1" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Diabetes (0/1):</label>
+          <input type="number" class="form-control" name="Diabetes" min="0" max="1" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Alcoholism (0/1):</label>
+          <input type="number" class="form-control" name="Alcoholism" min="0" max="1" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Handicap (0/1):</label>
+          <input type="number" class="form-control" name="Handicap" min="0" max="1" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">SMS Received (0/1):</label>
+          <input type="number" class="form-control" name="SMS_received" min="0" max="1" required />
+        </div>
+
+        <!-- Date Related Fields -->
+        <div class="col-md-6">
+          <label class="form-label">Appointment Day :</label>
+          <input type="number" class="form-control" name="WeekDay" min="1" max="31" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Scheduled Day (1 to 31):</label>
+          <input type="number" class="form-control" name="DayScheduled" min="1" max="31" required />
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary">Predict</button>
+      </div>
+    </form>
+
+    {% if prediction %}
+    <div class="alert alert-info mt-4 text-center">
+      <strong>Prediction:</strong> {{ prediction }}
+    </div>
+    {% endif %}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
